@@ -1,0 +1,4 @@
+flask
+requests
+pymodbus==3.6.9
+pyserial
