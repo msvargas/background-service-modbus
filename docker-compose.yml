@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  raspberry-pi-simulator:
+    build: ./app
+    ports:
+      - "8000:8000"
+    devices:
+      - "/dev/ttyS0:/dev/ttyS0"
+    volumes:
+      - ./app:/app
+    networks:
+      - sim-net
+
+networks:
+  sim-net:
+    driver: bridge
