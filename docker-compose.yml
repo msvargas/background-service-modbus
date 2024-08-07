@@ -1,12 +1,20 @@
 version: '3.8'
 
 services:
-  raspberry-pi-simulator:
+  mock-server:
     build: ./app
+    command: python3 /app/mock_server.py
     ports:
       - "8000:8000"
+    volumes:
+      - ./app:/app
+    networks:
+      - sim-net
+  modbus-service:
+    build: ./app
+    command: python3 /app/main.py
     devices:
-      - "/dev/ttyS0:/dev/ttyS0"
+      - "/dev/cu.usbserial-10:/dev/ttyS0"
     volumes:
       - ./app:/app
     networks:
