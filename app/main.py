@@ -50,7 +50,7 @@ async def run_server():
     await StartAsyncSerialServer(
         context=context,
         identity=identity,
-        port='/dev/cu.usbserial-10',
+        port='/dev/cu.usbserial-110',
         timeout=1,
         baudrate=9600,
         parity='N',
