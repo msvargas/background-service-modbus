@@ -21,6 +21,7 @@ if client.connect():
     
     if not result.isError():
         # Imprimir los valores leídos
+        print(result)
         print(f"Voltaje: {result.registers[0]} V")
         print(f"Corriente: {result.registers[1]} A")
         print(f"Temperatura: {result.registers[2]} °C")
