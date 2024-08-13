@@ -11,7 +11,7 @@ log.setLevel(logging.DEBUG)
 
 # Crear el contexto Modbus con valores iniciales para emular sensores
 store = ModbusSlaveContext(
-    hr=ModbusSequentialDataBlock(0x000, [10, 230, 85, 350]), 
+    hr=ModbusSequentialDataBlock(0x000, [10, 230, 85, 350,100]), 
      zero_mode=True # Registros de ejemplo
 )
 context = ModbusServerContext(slaves=store, single=True)
