@@ -3,6 +3,7 @@ from pymodbus.datastore import ModbusSlaveContext, ModbusServerContext
 from pymodbus.datastore import ModbusSequentialDataBlock
 from pymodbus.device import ModbusDeviceIdentification
 import logging
+import random
 
 # Configuración del logging
 logging.basicConfig()
@@ -11,8 +12,7 @@ log.setLevel(logging.DEBUG)
 
 # Crear el contexto Modbus con valores iniciales para emular sensores
 store = ModbusSlaveContext(
-    hr=ModbusSequentialDataBlock(0x000, [10, 230, 85, 350,100]), 
-     zero_mode=True # Registros de ejemplo
+    hr=ModbusSequentialDataBlock(0x000, random.sample(range(100),28)), 
 )
 context = ModbusServerContext(slaves=store, single=True)
 
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     StartSerialServer(
         context=context, 
         identity=identity, 
-        port='/dev/tty.usbserial-110',  # Cambia esto por el puerto serial de tu conversor
+        port='/dev/tty.usbserial-21230',  # Cambia esto por el puerto serial de tu conversor
         baudrate=9600, 
         timeout=1, 
         stopbits=1, 

@@ -17,7 +17,7 @@ client = ModbusSerialClient(
 )
 if client.connect():
     # Leer 4 registros de la dirección 0 del servidor
-    result = client.read_holding_registers(0, 4,slave=1)
+    result = client.read_holding_registers(0, 27,slave=1)
     
     if not result.isError():
         print(f"Voltaje: {result.registers[0]} V")
