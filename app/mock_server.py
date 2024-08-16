@@ -8,21 +8,36 @@ app = Flask(__name__)
 def get_last_measurements():
     # Mock response
     response = {
-        "temperature": None,
-        "resistance": {
-            "id": 6,
-            "value": 7,
+        "temperature":  {
+            "id": 1,
+            "value": 3000,
             "type": "3",
             "created_at": "2024-07-10T22:51:14+00:00"
         },
-        "vibration": None,
-        "isolation": {
-            "id": 8,
+        "resistance": {
+            "id": 2,
+            "value": 36789,
+            "type": "3",
+            "created_at": "2024-07-10T22:51:14+00:00"
+        },
+        "vibration":  {
+            "id": 3,
             "value": 1256,
-            "type": None,
+            "type": 3,
             "created_at": "2024-07-09T14:33:47+00:00"
         },
-        "pressure": None
+        "isolation": {
+            "id": 4,
+            "value": 62090,
+            "type": 3,
+            "created_at": "2024-07-09T14:33:47+00:00"
+        },
+        "pressure":  {
+            "id": 5,
+            "value": 19234,
+            "type": 3,
+            "created_at": "2024-07-09T14:33:47+00:00"
+        }
     }
     return jsonify(response)
 
