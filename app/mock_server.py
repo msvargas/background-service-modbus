@@ -9,31 +9,31 @@ def get_last_measurements():
     # Mock response
     response = {
         "temperature":  {
-            "id": 1,
+            "id": 5,
             "value": 3000,
             "type": "3",
             "created_at": "2024-07-10T22:51:14+00:00"
         },
         "resistance": {
-            "id": 2,
+            "id": 1,
             "value": 36789,
             "type": "3",
             "created_at": "2024-07-10T22:51:14+00:00"
         },
         "vibration":  {
-            "id": 3,
+            "id": 4,
             "value": 1256,
             "type": 3,
             "created_at": "2024-07-09T14:33:47+00:00"
         },
         "isolation": {
-            "id": 4,
+            "id": 2,
             "value": 62090,
             "type": 3,
             "created_at": "2024-07-09T14:33:47+00:00"
         },
         "pressure":  {
-            "id": 5,
+            "id": 3,
             "value": 19234,
             "type": 3,
             "created_at": "2024-07-09T14:33:47+00:00"

@@ -3,3 +3,4 @@ requests
 pymodbus==3.7.0
 pyserial
 asyncio
+requests
