@@ -63,3 +63,24 @@ Mac to Pi
 Pi to Mac
 ```shell
 rsync -avz pi@192.168.1.38:/home/pi/shared ./```
+```
+
+Create systemd service in Raspberry with the following command:
+
+```shell
+sudo cp modbus.service /etc/systemd/system/
+```
+
+Start and enable the service with the following command:
+
+```shell
+sudo systemctl daemon-reload
+sudo systemctl restart modbus_server.service
+```
+
+
+Check status of the service with the following command:
+
+```shell
+sudo systemctl status modbus_server.service
+```
