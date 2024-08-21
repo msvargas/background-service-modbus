@@ -1,5 +1,7 @@
 # background-service-modbus
 
+![image](https://github.com/user-attachments/assets/730a2c41-f5f3-4443-98ea-17067136e49c)
+
 Run the application with the following command:
 
 ```shell
