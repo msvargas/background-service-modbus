@@ -86,3 +86,17 @@ Check status of the service with the following command:
 ```shell
 sudo systemctl status modbus_server.service
 ```
+
+Config file:
+
+```json
+{
+  "endpoint_url" : "http://localhost:8000/getLastMeasurements",
+  "serial_port": "/dev/ttyUSB0",
+  "baudrate": 9600,
+  "timeout": 1,
+  "stopbits": 1,
+  "bytesize": 8,
+  "parity": "N"
+}
+```
