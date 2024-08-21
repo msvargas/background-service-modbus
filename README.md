@@ -53,3 +53,13 @@ modpoll -m rtu -a 1 -r 1 -c 1 -t 4 -b 9600 -d 8 -s 1 /dev/tty.usbserial-1440
 ```
 
 
+Share mac os files with raspberry pi with the following command:
+
+Mac to Pi
+```shell
+ rsync -avz ./ pi@192.168.1.38:/home/pi/shared
+```
+
+Pi to Mac
+```shell
+rsync -avz pi@192.168.1.38:/home/pi/shared ./```

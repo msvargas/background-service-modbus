@@ -8,7 +8,7 @@ log.setLevel(logging.DEBUG)
 
 # Configuración del cliente Modbus RTU
 client = ModbusSerialClient(
-    port='/dev/tty.usbserial-21210',  # Cambia esto por el puerto serial de tu otro conversor
+    port='/dev/ttyUSB1',  # Cambia esto por el puerto serial de tu otro conversor
     baudrate=9600,
     timeout=1,
     stopbits=1,

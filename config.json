@@ -1,6 +1,6 @@
 {
   "endpoint_url" : "http://localhost:8000/getLastMeasurements",
-  "serial_port": "/dev/tty.usbserial-21230",
+  "serial_port": "/dev/ttyUSB0",
   "baudrate": 9600,
   "timeout": 1,
   "stopbits": 1,

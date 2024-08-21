@@ -1,0 +1,12 @@
+[Unit]
+Description=Modbus RTU Server
+After=network.target
+
+[Service]
+ExecStart=/home/pi/share/dist/pymodbus-rtu-server
+WorkingDirectory=/home/pi/share
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
