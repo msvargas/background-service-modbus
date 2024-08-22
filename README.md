@@ -2,6 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/730a2c41-f5f3-4443-98ea-17067136e49c)
 
+
 Run the application with the following command:
 
 ```shell
@@ -100,3 +101,10 @@ Config file:
   "parity": "N"
 }
 ```
+
+
+# Installation
+
+
+
+![image](https://github.com/user-attachments/assets/65ab374b-0f36-4a00-be89-69fb26ebf172)
