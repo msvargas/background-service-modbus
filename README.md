@@ -120,6 +120,8 @@ Unzip project.zip in the desired location
 
 ![image](https://github.com/user-attachments/assets/65ab374b-0f36-4a00-be89-69fb26ebf172)
 
+Run the following command to install the service:
+
 ```shell
 sudo cp modbus_server.service /etc/systemd/system/
 chmod +x /home/pi/shared/dist/pymodbus-rtu-server
