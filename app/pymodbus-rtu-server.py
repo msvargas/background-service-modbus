@@ -22,10 +22,7 @@ class CustomModbusDataBlock(ModbusSequentialDataBlock):
     def getValues(self, address, count=1):
         data = self.fetch_data_from_endpoint()
         if data:
-            for key in data:
-                obj = data[key]
-                if "id" in obj and "value" in obj:
-                    self.setValues(obj["id"], [obj["value"]])
+            self.update_values(data)
         return super().getValues(address, count)
 
     def fetch_data_from_endpoint(self):
@@ -38,6 +35,13 @@ class CustomModbusDataBlock(ModbusSequentialDataBlock):
         except requests.exceptions.RequestException as e:
             log.error(f"Error al obtener los datos del endpoint: {e}")
             return None
+
+    def update_values(self, data):
+        for key, obj in data.items():
+            if isinstance(obj, dict) and "id" in obj and "value" in obj:
+                self.setValues(obj["id"], [obj["value"]])
+            else:
+                log.warning(f"Datos inválidos para la clave {key}: {obj}")
 
 # Crear el contexto Modbus con la clase personalizada
 store = ModbusSlaveContext(
@@ -55,20 +59,10 @@ identity.MajorMinorRevision = '1.0'
 
 if __name__ == "__main__":
 
-    if not "endpoint_url" in config:
-        raise ValueError("The endpoint URL is required in the config.json file")
-    if not "serial_port" in config:
-        raise ValueError("The serial port is required in the config.json file")
-    if not "baudrate" in config:
-        raise ValueError("The baudrate is required in the config.json file")
-    if not "timeout" in config:
-        raise ValueError("The timeout is required in the config.json file")
-    if not "stopbits" in config:
-        raise ValueError("The stopbits is required in the config.json file")
-    if not "bytesize" in config:
-        raise ValueError("The bytesize is required in the config.json file")
-    if not "parity" in config:
-        raise ValueError("The parity is required in the config.json file")
+    required_keys = ["endpoint_url", "serial_port", "baudrate", "timeout", "stopbits", "bytesize", "parity"]
+    for key in required_keys:
+        if key not in config:
+            raise ValueError(f"The {key} is required in the config.json file")
     
     StartSerialServer(
         context=context,

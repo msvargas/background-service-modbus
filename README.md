@@ -94,6 +94,10 @@ Check status of the service with the following command:
 sudo systemctl status modbus_server.service
 ```
 
+```shell
+ zip -r project.zip ./
+```
+
 ## Config file:
 
 ```json
