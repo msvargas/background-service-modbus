@@ -10,7 +10,7 @@ log.setLevel(logging.DEBUG)
 client = ModbusSerialClient(
     port='/dev/ttyUSB1',  # Cambia esto por el puerto serial de tu otro conversor
     baudrate=9600,
-    timeout=1,
+    timeout=10,
     stopbits=1,
     bytesize=8,
     parity='N'
@@ -27,6 +27,7 @@ if client.connect():
         print(f"Temperature: {result.registers[4]} mm/s")
     else:
         print("Error al leer los registros")
+        print(result)
 
     client.close()
 else:

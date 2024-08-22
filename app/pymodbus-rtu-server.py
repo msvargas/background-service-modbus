@@ -41,7 +41,7 @@ class CustomModbusDataBlock(ModbusSequentialDataBlock):
 
 # Crear el contexto Modbus con la clase personalizada
 store = ModbusSlaveContext(
-    hr=CustomModbusDataBlock(0x000, [0]*6),  # Assume max 6 registers for initialization
+    hr=CustomModbusDataBlock(0x000, [0]*100),  # Assume max 6 registers for initialization
 )
 context = ModbusServerContext(slaves=store, single=True)
 
