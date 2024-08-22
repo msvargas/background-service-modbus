@@ -68,10 +68,16 @@ Pi to Mac
 rsync -avz pi@192.168.1.38:/home/pi/shared ./```
 ```
 
+Sync dist folder
+
+```shell
+rsync -avz pi@192.168.1.38:/home/pi/shared/dist ./
+```
+
 Create systemd service in Raspberry with the following command:
 
 ```shell
-sudo cp modbus.service /etc/systemd/system/
+sudo cp modbus_server.service /etc/systemd/system/
 ```
 
 Start and enable the service with the following command:
@@ -95,7 +101,7 @@ Config file:
   "endpoint_url" : "http://localhost:8000/getLastMeasurements",
   "serial_port": "/dev/ttyUSB0",
   "baudrate": 9600,
-  "timeout": 1,
+  "timeout": 10,
   "stopbits": 1,
   "bytesize": 8,
   "parity": "N"
@@ -106,5 +112,25 @@ Config file:
 # Installation
 
 
+Unzip project.zip in the desired location
+
+```shell
+/home/pi/shared
+```
 
 ![image](https://github.com/user-attachments/assets/65ab374b-0f36-4a00-be89-69fb26ebf172)
+
+```shell
+sudo cp modbus_server.service /etc/systemd/system/
+chmod +x /home/pi/shared/dist/pymodbus-rtu-server
+sudo systemctl daemon-reload
+sudo systemctl restart modbus_server.service
+sudo systemctl enable modbus_server.service
+```
+
+Check status of the service with the following command:
+
+```shell
+sudo systemctl status modbus_server.service
+```
+
