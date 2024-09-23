@@ -119,7 +119,7 @@ sudo systemctl status modbus_server.service
 Unzip project.zip in the desired location
 
 ```shell
-/home/pi/shared
+mkdir ~/shared && cd ~/shared
 ```
 
 ![image](https://github.com/user-attachments/assets/65ab374b-0f36-4a00-be89-69fb26ebf172)
@@ -127,8 +127,8 @@ Unzip project.zip in the desired location
 Run the following command to install the service:
 
 ```shell
-sudo cp modbus_server.service /etc/systemd/system/
-chmod +x /home/pi/shared/dist/pymodbus-rtu-server
+sudo cp ~/shared/modbus_server.service /etc/systemd/system/
+chmod +x ~/shared/dist/pymodbus-rtu-server
 sudo systemctl daemon-reload
 sudo systemctl restart modbus_server.service
 sudo systemctl enable modbus_server.service
