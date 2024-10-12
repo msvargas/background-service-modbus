@@ -37,11 +37,11 @@ class CustomModbusDataBlock(ModbusSequentialDataBlock):
             return None
 
     def update_values(self, data):
-        for key, obj in data.items():
+        for obj in data["result"]:
             if isinstance(obj, dict) and "id" in obj and "value" in obj:
                 self.setValues(obj["id"], [obj["value"]])
             else:
-                log.warning(f"Datos inválidos para la clave {key}: {obj}")
+                log.warning(f"Datos inválidos para {obj["measure_type"]}: {obj}")
 
 # Crear el contexto Modbus con la clase personalizada
 store = ModbusSlaveContext(
