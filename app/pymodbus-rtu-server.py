@@ -41,7 +41,8 @@ class CustomModbusDataBlock(ModbusSequentialDataBlock):
             if isinstance(obj, dict) and "id" in obj and "value" in obj:
                 self.setValues(obj["id"], [obj["value"]])
             else:
-                log.warning(f"Datos inválidos para {obj["measure_type"]}: {obj}")
+                measure_type = obj.get("measure_type", "desconocido")  # Si no hay "measure_type", usa "desconocido"
+                log.warning(f"Datos inválidos para {measure_type}: {obj}")
 
 # Crear el contexto Modbus con la clase personalizada
 store = ModbusSlaveContext(
