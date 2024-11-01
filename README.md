@@ -52,7 +52,7 @@ or https://www.modbusdriver.com/diagslave.html
 Test the application with the following command:
 
 ```shell
-modpoll -m rtu -a 1 -r 1 -c 1 -t 4 -b 9600 -d 8 -s 1 /dev/tty.usbserial-1440
+modpoll -m rtu -a 1 -r 1 -c 1 -t 4 -b 9600 -d 8 -s 1 /dev/ttyUSB0
 ```
 
 
@@ -60,7 +60,7 @@ Share mac os files with raspberry pi with the following command:
 
 Mac to Pi
 ```shell
- rsync -avz ./ pi@192.168.1.38:/home/pi/shared
+ rsync -avz ./app alcalavan@192.168.1.43:/home/alcalavan/shared
 ```
 
 Pi to Mac

@@ -5,5 +5,8 @@
   "timeout": 10,
   "stopbits": 1,
   "bytesize": 8,
-  "parity": "N"
+  "parity": "N",
+  "slave_id": 1,
+  "multiplier": 10,
+  "request_interval": 60
 }
