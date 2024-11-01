@@ -49,7 +49,7 @@ class CustomModbusDataBlock(ModbusSequentialDataBlock):
                 measure_type = obj.get("measure_type", "desconocido")  # Si no hay "measure_type", usa "desconocido"
                 log.debug(f"Actualizando valor de {measure_type} ID:{obj['id']} => {obj['value']}")
                 # Multiplicar el valor por 10 para simular un valor de 1 decimal y enviar un entero siempre
-                value = int(obj["value"] * 10)
+                value = int(obj["value"] * config["scale_factor"])
                 self.setValues(obj["id"], [value])
             else:
                 measure_type = obj.get("measure_type", "desconocido")  # Si no hay "measure_type", usa "desconocido"
@@ -63,10 +63,10 @@ class CustomModbusDataBlock(ModbusSequentialDataBlock):
         #      data = [10] * count
         #      return data
         return data
-datablock = CustomModbusDataBlock(0x000, [0]*100)
+
 # Crear el contexto Modbus con la clase personalizada
 store = ModbusSlaveContext(
-    hr= datablock,  # Assume max 6 registers for initialization
+    hr= CustomModbusDataBlock(0x000, [0]*100),  # Assume max 6 registers for initialization
 )
 
 identity = ModbusDeviceIdentification()
@@ -78,11 +78,11 @@ identity.ModelName = 'Modbus RTU Server Model'
 identity.MajorMinorRevision = '1.0'
 
 if __name__ == "__main__":
-    required_keys = ["endpoint_url", "serial_port", "baudrate", "timeout", "stopbits", "bytesize", "parity", "slave_id"]
+    required_keys = ["endpoint_url", "serial_port", "baudrate", "timeout", "stopbits", "bytesize", "parity", "slave_id", "scale_factor"]
     for key in required_keys:
         if key not in config:
             raise ValueError(f"The {key} is required in the config.json file")
-    context = ModbusServerContext(slaves={ config["slave_id"]: store}, single=False)
+    context = ModbusServerContext(slaves={ config["slave_id"]: store }, single=False)
     # Configuration for StartSerialServer
     server_kwargs = {
         "context": context,
