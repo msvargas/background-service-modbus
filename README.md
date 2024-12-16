@@ -13,7 +13,7 @@ mkdir ~/shared && cd ~/shared
 
 
 First install dependencies in the ./app folder using 
-`python3 -r requirements.txt`
+`cd ./app && python3 -r requirements.txt`
 
 Update in the file `https://github.com/msvargas/background-service-modbus/blob/main/modbus_server.service#L7-L9` modbus_server.service the name of the User and WorkingDirectory
 
