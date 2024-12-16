@@ -15,7 +15,7 @@ mkdir ~/shared && cd ~/shared
 First install dependencies in the ./app folder using 
 `cd ./app && python3 -r requirements.txt`
 
-Update in the file [modbus_server.service](https://github.com/msvargas/background-service-modbus/blob/main/modbus_server.service#L7-L9) the name of the User and WorkingDirectory
+Update in the file [modbus_server.service](https://github.com/msvargas/background-service-modbus/blob/main/modbus_server.service#L6-L9) the name of the ExecStart, User and WorkingDirectory with the properly USER value
 
 ![image](https://github.com/user-attachments/assets/65ab374b-0f36-4a00-be89-69fb26ebf172)
 
