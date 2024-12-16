@@ -116,11 +116,17 @@ sudo systemctl status modbus_server.service
 # Installation
 
 
-Unzip project.zip in the desired location
+Copy and paste the project in the desired location
 
 ```shell
 mkdir ~/shared && cd ~/shared
 ```
+
+
+First install dependencies in the ./app folder using 
+`python3 -r requirements.txt`
+
+Update in the file `https://github.com/msvargas/background-service-modbus/blob/main/modbus_server.service#L7-L9` modbus_server.service the name of the User and WorkingDirectory
 
 ![image](https://github.com/user-attachments/assets/65ab374b-0f36-4a00-be89-69fb26ebf172)
 
@@ -139,4 +145,9 @@ Check status of the service with the following command:
 ```shell
 sudo systemctl status modbus_server.service
 ```
+
+Or run directly in the terminal
+
+
+`python3 /home/alcalavan/shared/app/pymodbus-rtu-server.py`
 
